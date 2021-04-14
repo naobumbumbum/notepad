@@ -8,10 +8,16 @@ class Link < Post
   end
 
   def read_from_console
-    super
+    puts "Link address: "
+    @url = STDIN.gets.chomp
+
+    puts "What is link?"
+    @text = STDIN.gets.chomp
   end
 
   def to_strings
-    super
+    time_string = "Created: #{@created_at.strftime("%Y.%m.%d, %H:%M:%S")} \n\r \n\r"
+
+    return [@url, @text, time_string]
   end
 end
